@@ -8,7 +8,7 @@ const geoUrl = './countries-110m.json'
       <Geographies id='map' geography={geoUrl}>
         {({ geographies }) =>
           geographies.map((geo) => (
-            <Geography country={geo.properties.name} key={geo.rsmKey} geography={geo} fill={countries.some(x => geo.properties.name == x) ? '#ee582a' : '#e9e9e9'}/>
+            <Geography country={geo.properties.name} key={geo.rsmKey} geography={geo} fill={countries.some(x => geo.properties.name === x) ? '#ee582a' : '#e9e9e9'}/>
           ))
         }
       </Geographies>
