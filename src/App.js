@@ -81,8 +81,7 @@ function Photo() {
     if ( page.visible && page.pic) {
       document.getElementById('overlay-page-bg').style.visibility = 'visible';
     } 
-    htmlScrollable();
-  }, [page.visible])
+    htmlScrollable()}, [page.visible])
 
   useEffect(() => {
     function screen() {
@@ -116,7 +115,7 @@ function Photo() {
       (prog1.value < 1 && prog1.value > 0) ? parent.children[4].classList.add("style_on_scroll") : parent.children[4].classList.remove("style_on_scroll");
       (prog2.value < 1 && prog2.value > 0) ? parent.children[5].classList.add("style_on_scroll") : parent.children[5].classList.remove("style_on_scroll");
       (prog3.value < 1 && prog3.value > 0) ? parent.children[6].classList.add("style_on_scroll") : parent.children[6].classList.remove("style_on_scroll");
-      (prog3.value == 1 ) ? parent.children[7].classList.add("style_on_scroll") : parent.children[7].classList.remove("style_on_scroll");
+      (prog3.value === 1 ) ? parent.children[7].classList.add("style_on_scroll") : parent.children[7].classList.remove("style_on_scroll");
     }
 
     "scroll resize".split(" ").forEach(function(e){
@@ -169,11 +168,11 @@ function Photo() {
     <div className="App">
       <section id='start'>
         <nav id='h_navbar' className='navbar'>
-        {screenSmall == 'XS' ? <NavDronDown/> : <Nav/>}
+        {screenSmall === 'XS' ? <NavDronDown/> : <Nav/>}
         </nav>
         <h1>World through my lens</h1>
         <div id='gallery-flex-box'>
-        {screenSmall == 'L' ? random.map((pic, i) => <Pic pic={pic} func={display} key={i}/>) : <HandleSmallScreen pic={random[0]} func={display}/>}
+        {screenSmall === 'L' ? random.map((pic, i) => <Pic pic={pic} func={display} key={i}/>) : <HandleSmallScreen pic={random[0]} func={display}/>}
         </div>
         <a id='down' href='#about_me'>
           <FontAwesomeIcon icon={faCaretDown} className='angle'/>

@@ -6,7 +6,7 @@ export default function OverlayPage({link, alt, location, func, handleSubmit}) {
 
     return (
         <div id='overlay-page-bg' onClick={(e) => {
-            if (e.target.id == 'overlay-page-bg') func()}}>
+            if (e.target.id === 'overlay-page-bg') func()}}>
         <div id='overlay-page'>
         <FontAwesomeIcon icon={faX} id='x' onClick={() => func()}/>
         <img src={link} alt={alt}/>

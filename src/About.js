@@ -5,7 +5,7 @@ export default function About() {
     let day = now.getDate();
     let bday = [1996, 8, 9]
     let age = () =>  {
-        if(month < bday[1] || ((month == bday[1]) && (day < bday[2]))) {
+        if(month < bday[1] || ((month === bday[1]) && (day < bday[2]))) {
             return year - bday[0] - 1;
         } else {
             return year - bday[0];
@@ -25,7 +25,7 @@ export default function About() {
         <>
         <h2 className='grid-item'>About Me</h2>
         <div id='profile' className='grid-item'>
-            <img src='https://images.pexels.com/photos/4825679/pexels-photo-4825679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='profile photo'/>
+            <img src='Pics/profile_photo.jpeg' alt='profile'/>
             <p className="full-name"><strong>{profile.fname} {profile.lname}</strong></p>
             <p><strong>Age: </strong> {profile.age}</p>
             <p><strong>Country: </strong> {profile.country}</p>
