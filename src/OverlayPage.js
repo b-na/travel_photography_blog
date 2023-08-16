@@ -47,7 +47,7 @@ export default function OverlayPage({link, alt, location, func, handleSubmit}) {
         </p>
         </article>
         <form action="" method="get" onSubmit={e => handleSubmit(e)}>
-            <p className='overlay-grid-item'><strong>Have you evet been to {locArr[0]} in {locArr[locArr.length - 1]}?<br/> 
+            <p><strong>Have you evet been to {locArr[0]} in {locArr[locArr.length - 1]}?<br/> 
             Share your unforgettable experiences, cherished memories, and hidden gems with us. Your words can inspire 
             others to embark on their own adventure!</strong></p>
             <textarea id="story" name="story" minLength="10" maxLength="2000" placeholder="Share your story..." required/>
