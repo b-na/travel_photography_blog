@@ -380,9 +380,9 @@ body .App {
 }
 
 #newsletter {
-  height: 90vh;
-  min-height: -moz-max-content;
-  min-height: max-content;
+  height: -moz-max-content;
+  height: max-content;
+  min-height: 90vh;
   display: flex;
   align-items: center;
 }
@@ -551,7 +551,7 @@ body .App {
 #v_navbar div a {
   position: relative;
   z-index: 1;
-  padding: 18px 10px;
+  padding: 15px 10px;
 }
 #v_navbar div :nth-child(4) {
   padding-bottom: 0 !important;
@@ -594,7 +594,7 @@ p, .navbar, h2, textarea {
 .progress {
   background: none;
   background-color: transparent;
-  translate: 0 30px;
+  translate: 0 15px;
 }
 
 .progress::-webkit-meter-bar {

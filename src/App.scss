@@ -414,8 +414,8 @@ body {
 }
 
 #newsletter{
-    height: 90vh;
-    min-height: max-content;
+    height: max-content;
+    min-height: 90vh;
     display: flex;
     align-items: center;
 
@@ -590,7 +590,7 @@ body {
         a {
             position: relative;
             z-index: 1;
-            padding: 18px 10px;
+            padding: 15px 10px;
         }
 
         :nth-child(4) {
@@ -637,7 +637,7 @@ p, .navbar, h2, textarea{
 .progress {
     background: none;
     background-color: transparent;
-    translate: 0 30px;
+    translate: 0 15px;
 }
 
 .progress::-webkit-meter-bar {
