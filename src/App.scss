@@ -638,17 +638,13 @@ p, .navbar, h2, textarea{
 .progress {
     background: none;
     background-color: transparent;
-    translate: -55px 15px;
-}
-
-.progress::-webkit-meter-bar {
+    translate: 40px -5px;
     right: 0;
     top: 0;
     transform-origin: bottom left;
     transform: rotate(90deg);
     align-self: center;
     justify-self: center;
-    translate: 80% 0%;
     width: 80px;
     height: 8px;
     padding: 0;
@@ -656,18 +652,24 @@ p, .navbar, h2, textarea{
     border-radius: 0;
 }
 
-@-moz-document url-prefix() { 
-    .progress {
-         background-color: $prime3;
-    }
+.progress::-webkit-meter-bar {
+    background: none;
+    background-color: transparent;
 }
 
-.progress::-moz-meter-bar {
-    background: none;
-    border: 0;
-    background-color: $prime4;
-    border-radius: 0;
-    overflow: hidden;
+@-moz-document url-prefix() { 
+    .progress {
+        background: none;
+         background-color: $prime3;
+    }
+
+    .progress::-moz-meter-bar {
+        background: none;
+        border: 0;
+        background-color: $prime4;
+        border-radius: 0;
+        overflow: hidden;
+    }
 }
 
 .progress::-webkit-meter-bar {
