@@ -14,9 +14,7 @@ $box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px
         scrollbar-color: rgb(44, 44, 44) rgba(126, 126, 126, 0.425);
         scrollbar-width: thin;
     }
-}
-  
-
+} 
 
 *::-webkit-scrollbar, *::-moz-sc{
     height: 7px;
@@ -610,6 +608,12 @@ p, .navbar, h2, textarea{
 }
 
 .progress {
+    background: none;
+    background-color: transparent;
+    translate: 0 30px;
+}
+
+.progress::-webkit-meter-bar {
     right: 0;
     top: 0;
     transform-origin: bottom left;
@@ -622,8 +626,6 @@ p, .navbar, h2, textarea{
     padding: 0;
     margin-top: 0px;
     border-radius: 0;
-    background: none;
-    background-color: transparent;
 }
 
 @-moz-document url-prefix() { 
@@ -632,12 +634,12 @@ p, .navbar, h2, textarea{
     }
 }
 
-
 .progress::-moz-meter-bar {
     background: none;
     border: 0;
     background-color: $prime4;
     border-radius: 0;
+    overflow: hidden;
 }
 
 .progress::-webkit-meter-bar {
@@ -645,6 +647,7 @@ p, .navbar, h2, textarea{
     border: 0;
     background-color: $prime3;
     border-radius: 0;
+    overflow: hidden;
 }
 
 .progress:first-of-type::-webkit-meter-bar {
@@ -656,7 +659,28 @@ p, .navbar, h2, textarea{
 }
 
 .progress::-webkit-meter-optimum-value {
+    background: none;
     background-color: $prime4;
+}
+
+@supports (-webkit-hyphens:none){
+    .progress {
+        -webkit-appearance: none;
+           -moz-appearance: none;
+                appearance: none;
+        background: none;
+        background-color: transparent;
+    }
+
+    .progress::-webkit-meter-bar {
+        background: none;
+        background-color: $prime3;
+    }
+
+    .progress::-webkit-meter-optimum-value {
+        background: none;
+        background-color: $prime4;
+    }
 }
 
 #overlay-page-bg {
