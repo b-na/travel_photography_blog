@@ -424,7 +424,7 @@ body {
         display: flex;
         align-items: center;
         left: -30px;
-        padding: 30px 0;
+        padding: 30px 10px 30px 20px;
         width: 100%;
         height: 50%;
         min-height: max-content;
@@ -490,7 +490,7 @@ body {
 }
   
 #down {
-    translate: -50%;
+    bottom: 50px;
     left: 50%;
     animation: moveDown 1s ease-in-out infinite alternate;
     position: absolute;
@@ -562,7 +562,7 @@ body {
 #v_navbar {
     position: relative;
     grid-area: 'v_nav';
-    right: 30px;
+    right: 10px;
     top: 20px;
 
     div {
@@ -571,6 +571,7 @@ body {
         top: 10px;
         display: grid;
         gap: 17px;
+        grid-template-columns: 1.5rem max-content;
         grid-template-areas: 
         ". arr"
         "prog1 about"
@@ -637,7 +638,7 @@ p, .navbar, h2, textarea{
 .progress {
     background: none;
     background-color: transparent;
-    translate: 0 15px;
+    translate: -55px 15px;
 }
 
 .progress::-webkit-meter-bar {
@@ -875,10 +876,10 @@ footer {
   
   @keyframes moveDown {
     from {
-      top: 91vh;
+      bottom: 40px;
     }
     to {
-      top: 93vh;
+      bottom: 20px;
     }
   }
 
