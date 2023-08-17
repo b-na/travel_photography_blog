@@ -2,7 +2,9 @@
 
 Welcome to the Travel Photography Blog project repository! This repository contains the source code for a blog website dedicated to showcasing captivating travel photographs and inspiring stories from around the world.
 
-![Travel Photography Blog Preview](preview-image-url.jpg)
+![Travel Photography Blog Preview1](Screenshot1.png)
+![Travel Photography Blog Preview2](Screenshot2.png)
+![Travel Photography Blog Preview3](Screenshot3.png)
 
 ## Table of Contents
 
