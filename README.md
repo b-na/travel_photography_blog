@@ -37,7 +37,7 @@ Check out the live demo of the Travel Photography Blog: [https://b-na.github.io/
 
 - HTML5
 - CSS3
-- SCSS
+- SASS
 - JavaScript
 - React
 
