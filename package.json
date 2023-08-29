@@ -2,7 +2,7 @@
   "name": "travel_photography_blog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://b-na.github.io/travel_photography_blog/",
+  "homepage": "https://b-na.github.io/travel_photography_blog",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
@@ -15,8 +15,8 @@
     "babel-plugin-macros": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "react-simple-maps": "^3.0.0",
+    "react-scripts": "^5.0.1",
+    "react-simple-maps": "^1.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

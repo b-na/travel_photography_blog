@@ -8,74 +8,75 @@
     scrollbar-color: rgb(44, 44, 44) rgba(126, 126, 126, 0.425);
     scrollbar-width: thin;
   }
+  *::-moz-sc {
+    background-color: rgba(126, 126, 126, 0.425);
+  }
 }
-*::-webkit-scrollbar, *::-moz-sc {
+*::-webkit-scrollbar {
   height: 7px;
   width: 7px;
-  background-color: rgba(126, 126, 126, 0.425);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgb(44, 44, 44);
+  border-radius: 10px;
+  background-color: #555;
 }
 
-*::-webkit-scrollbar-button:single-button {
-  background-color: rgb(44, 44, 44);
-  width: 17px;
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #ee582a;
 }
 
-*::-webkit-scrollbar-button:single-button:hover, *::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(24, 24, 24);
-}
-
-@media only screen and (max-width: 800px) {
+@media (max-width: 800px) {
   *::-webkit-scrollbar {
     display: none;
   }
 }
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+}
+
+p, .navbar, h2, textarea {
+  font-family: "Quicksand", sans-serif;
 }
 
 body {
   background-color: #191818;
   width: 100%;
 }
-body #start {
-  grid-area: start;
-}
-body #about_me {
-  grid-area: about_me;
-}
-body #v_navbar {
-  grid-area: v_nav;
-}
-body #gallery {
-  grid-area: gal;
-}
-body #myMap {
-  grid-area: map;
-}
-body #newsletter {
-  grid-area: news;
-}
-body footer {
-  grid-area: footer;
-}
 body .App {
   display: grid;
-  grid-template-areas: "start start" "about_me v_nav" "gal v_nav" "map v_nav" "news v_nav" "footer footer";
+  grid-template-columns: 80% 20%;
+}
+body #start {
+  grid-column: 1/3;
+}
+body #about_me {
+  grid-column: 1;
+}
+body #v_navbar {
+  grid-column: 2;
+  grid-row: 2/6;
+}
+body #gallery {
+  grid-column: 1;
+}
+body #myMap {
+  grid-column: 1;
+}
+body #newsletter {
+  grid-column: 1;
+}
+body footer {
+  grid-column: 1/3;
 }
 
 #start {
   position: relative;
   width: 100%;
   height: 100vh;
+  -webkit-user-select: none;
   -moz-user-select: none;
        user-select: none;
-  -webkit-user-select: none;
-  grid-area: "start";
 }
 #start #h_navbar {
   position: absolute;
@@ -83,7 +84,6 @@ body .App {
   top: -1px;
   left: 0;
   right: 0;
-  width: 100%;
   height: 40px;
   background-color: #191818;
   display: flex;
@@ -96,6 +96,7 @@ body .App {
   align-items: center;
   position: relative;
   height: 100%;
+  transition: color 0.3s ease;
 }
 #start #h_navbar .nav_link:hover {
   color: #ee582a;
@@ -107,13 +108,12 @@ body .App {
   top: 0;
   left: 0;
   right: 0;
-  width: 100%;
-  height: 0;
+  bottom: 100%;
   background-color: #2c2c2c;
-  transition: 0.3s ease;
+  transition: bottom 0.3s ease;
 }
 #start #h_navbar .nav_link:hover::before {
-  height: 100%;
+  bottom: 0;
 }
 #start h1 {
   padding: 0 15px;
@@ -123,7 +123,7 @@ body .App {
   top: 60px;
   text-align: left;
   font-size: 4rem;
-  background-color: rgba(66, 66, 66, 0.4235294118);
+  background-color: rgba(66, 66, 66, 0.424);
   -webkit-backdrop-filter: blur(3px) brightness(75%);
   backdrop-filter: blur(3px) brightness(75%);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
@@ -133,16 +133,16 @@ body .App {
   font-variant: small-caps;
   text-shadow: 0px 0px 5px #222222;
 }
-#start #gallery-flex-box {
+#start #photos-flexbox {
   width: 100%;
   height: 100%;
   display: flex;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
-#start #gallery-flex-box .flex-item {
+#start #photos-flexbox .flex-item {
   top: 0;
-  height: 100%;
+  bottom: 0;
   flex-grow: 1;
   filter: brightness(0.3);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
@@ -152,7 +152,7 @@ body .App {
   overflow: hidden;
   position: relative;
 }
-#start #gallery-flex-box .flex-item figcaption {
+#start #photos-flexbox .flex-item figcaption {
   padding: 10px;
   position: absolute;
   top: 75%;
@@ -162,22 +162,21 @@ body .App {
   font-family: "Quicksand", sans-serif;
   font-size: 1.5em;
   font-variant: small-caps;
-  text-shadow: -1px 1px 3px #363636, 1px -1px 3px #000000;
+  text-shadow: -1px 1px 3px rgb(54, 54, 54), 1px -1px 3px rgb(0, 0, 0);
   opacity: 0;
   border-radius: 4px;
-  transition: background-color 0.7s ease, box-shadow 0.7s ease, opacity 0.7s ease;
+  transition: background-color 0.7s ease, box-shadow 0.7s ease, opacity 0.7s ease, transform 8s ease;
 }
-#start #gallery-flex-box .flex-item:hover {
+#start #photos-flexbox .flex-item:hover {
   flex-grow: 4;
   filter: brightness(1);
-  scale: 105%;
 }
-#start #gallery-flex-box .flex-item:hover figcaption {
+#start #photos-flexbox .flex-item:hover figcaption {
   opacity: 1;
-  background-color: rgba(30, 30, 30, 0.8431372549);
+  background-color: rgba(30, 30, 30, 0.843);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
-#start #gallery-flex-box .cover {
+#start #photos-flexbox .cover {
   width: 100%;
   height: 100%;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
@@ -185,7 +184,7 @@ body .App {
   background-position: center;
   overflow: hidden;
 }
-#start #gallery-flex-box .cover figcaption {
+#start #photos-flexbox .cover figcaption {
   padding: 10px;
   position: absolute;
   top: 75%;
@@ -194,14 +193,10 @@ body .App {
   font-family: "Quicksand", sans-serif;
   font-size: 1.5em;
   font-variant: small-caps;
-  text-shadow: -1px 1px 3px #363636, 1px -1px 3px #000000;
+  text-shadow: -1px 1px 3px rgb(54, 54, 54), 1px -1px 3px rgb(0, 0, 0);
   border-radius: 4px;
-  background-color: rgba(30, 30, 30, 0.8431372549);
+  background-color: rgba(30, 30, 30, 0.843);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
-}
-
-#about_me, #gallery, #myMap {
-  min-height: 100vh;
 }
 
 #about_me {
@@ -209,12 +204,11 @@ body .App {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
 }
 #about_me #my_story {
   padding: 20px 30px 50px 30px;
   width: 80%;
-  height: -moz-max-content;
-  height: max-content;
   background-color: #e9e9e9;
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
@@ -231,8 +225,8 @@ body .App {
   border-right: 1px solid #2c2c2c;
 }
 #about_me #my_story #profile img {
-  width: 100%;
-  height: 100%;
+  width: 95vw;
+  height: 95vh;
   max-width: 150px;
   max-height: 150px;
   -o-object-fit: cover;
@@ -241,10 +235,10 @@ body .App {
   border-radius: 10%;
   display: block;
   margin: 0 auto 30px auto;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
 #about_me #my_story #profile img:hover {
-  scale: 110%;
+  transform: scale(110%);
   filter: brightness(1.1);
   box-shadow: none;
 }
@@ -266,12 +260,13 @@ body .App {
 }
 
 #gallery {
+  min-height: 100vh;
   padding: 30px 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#gallery #container {
+#gallery #gallery-container {
   width: 95%;
   display: flex;
   flex-direction: row;
@@ -280,7 +275,7 @@ body .App {
   gap: 40px;
   padding: 20px 0;
 }
-#gallery #container .photo_container {
+#gallery #gallery-container .photo_container {
   position: relative;
   background-color: #e9e9e9;
   width: 95vw;
@@ -292,7 +287,7 @@ body .App {
   text-align: center;
   font-variant: small-caps;
 }
-#gallery #container .photo_container img {
+#gallery #gallery-container .photo_container img {
   top: 3%;
   left: 3%;
   bottom: 3%;
@@ -303,9 +298,9 @@ body .App {
   -o-object-fit: cover;
      object-fit: cover;
   transition: all 0.2s ease;
-  border-radius: inherit;
+  border-radius: 7px;
 }
-#gallery #container .photo_container .overlay {
+#gallery #gallery-container .photo_container .overlay {
   pointer-events: none;
   position: absolute;
   top: 3%;
@@ -323,26 +318,24 @@ body .App {
   justify-content: center;
   background-color: rgba(25, 24, 24, 0.6);
   transition: all 0.2s ease;
-  border-radius: inherit;
+  border-radius: 7px;
 }
-#gallery #container .fadeIn {
-  transition: translate 0.5s ease, opacity 0.8s ease;
-  translate: 0 40px;
+#gallery #gallery-container .fadeIn {
+  transition: opacity 0.8s ease;
   opacity: 0;
 }
-#gallery #container .fadeIn.is-visible {
+#gallery #gallery-container .fadeIn.is-visible {
   opacity: 1;
-  translate: none;
 }
-#gallery #container .photo_container:hover img, #gallery #container .photo_container:hover .overlay {
-  top: 0%;
-  bottom: 0%;
-  left: 0%;
-  right: 0%;
-  width: 100%;
-  height: 100%;
+#gallery #gallery-container .photo_container:hover img, #gallery #gallery-container .photo_container:hover .overlay {
+  top: -2%;
+  bottom: -2%;
+  left: -2%;
+  right: -2%;
+  width: 104%;
+  height: 104%;
 }
-#gallery #container .photo_container:hover .overlay {
+#gallery #gallery-container .photo_container:hover .overlay {
   opacity: 0;
 }
 
@@ -350,16 +343,12 @@ body .App {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  min-height: -moz-max-content;
-  min-height: max-content;
+  min-height: 100vh;
   flex-direction: column;
   padding: 30px 0;
 }
 #myMap p {
   max-height: 20vh;
-  min-height: -moz-max-content;
-  min-height: max-content;
   font-family: "Secular One", sans-serif !important;
   color: #ee582a;
   font-size: 1.9rem;
@@ -380,8 +369,6 @@ body .App {
 }
 
 #newsletter {
-  height: -moz-max-content;
-  height: max-content;
   min-height: 90vh;
   display: flex;
   align-items: center;
@@ -389,197 +376,155 @@ body .App {
 #newsletter #nl_form {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   left: -30px;
-  padding: 30px 10px 30px 20px;
+  padding: 30px 40px 30px 60px;
   width: 100%;
-  height: 50%;
-  min-height: -moz-max-content;
-  min-height: max-content;
+  min-height: 50%;
   background-color: #ee582a;
   color: #191818;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
   font-size: 1.2rem;
 }
-#newsletter #nl_form form {
-  width: 95%;
-  float: right;
-  margin: 0 20px;
+#newsletter #nl_form h3 {
+  font-variant: small-caps;
 }
-#newsletter #nl_form form input {
-  padding: 5px;
-  margin: 10px;
-  height: 40px;
-  font-size: 15px;
-  border: none;
-  border-radius: 3px;
+#newsletter #nl_form p {
+  text-align: center;
 }
-#newsletter #nl_form form #icons {
+#newsletter #nl_form #icons {
   display: flex;
   width: 100%;
-  margin: auto;
   padding: 20px;
   font-size: 30px;
   align-items: center;
   justify-content: center;
 }
-#newsletter #nl_form form #icons svg {
+#newsletter #nl_form #icons svg {
   margin: 0 10px;
 }
-#newsletter #nl_form form input:last-of-type {
-  width: -moz-max-content;
-  width: max-content;
+#newsletter #nl_form form {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 30px;
+}
+#newsletter #nl_form form label {
+  grid-column: 1;
+  font-variant: small-caps;
+  font-weight: 500;
+  align-self: center;
+  margin-right: 10px;
+}
+#newsletter #nl_form form input {
+  grid-column: 2;
+  padding: 5px;
+  height: 40px;
+  font-size: 15px;
+  border: none;
+  border-radius: 3px;
+}
+#newsletter #nl_form form > input:last-of-type {
+  justify-self: center;
+  min-width: 170px;
   padding: 0 15px;
   background-color: #191818;
   border: none;
   color: #e9e9e9;
   font-variant: small-caps;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
-#newsletter #nl_form form input:last-of-type:hover {
-  background-color: #2c2c2c;
+#newsletter #nl_form form > input:last-of-type:hover {
+  background-color: black;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
 .angle {
   color: #e9e9e9;
   font-size: 40px;
   border-radius: 2px;
-  filter: drop-shadow(0 0 2px #191818);
   transition: all 0.3s ease;
 }
 
 #down {
   bottom: 50px;
   left: 50%;
+  transform: translate(-20px);
   animation: moveDown 1s ease-in-out infinite alternate;
   position: absolute;
   padding: 10px 15px;
 }
 
-.btn-group {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-.btn-group button {
-  height: 100%;
-  width: 100%;
-  border: none;
-  background-color: inherit;
-  font-size: 1.3rem;
-  margin: auto;
-}
-.btn-group button #bars {
-  color: #e9e9e9;
-}
-.btn-group button #bars:active {
-  color: #ee582a;
-}
-
-#dropdown-menu {
+#btn-group {
   width: 100%;
   background-color: #191818;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  list-style-type: none;
   padding: 0;
   margin: 0;
+  text-align: center;
+  padding: 15px 0;
 }
-#dropdown-menu li {
-  padding: 10px;
-  position: relative;
+#btn-group summary {
+  font-size: 1.5rem;
+  color: #e9e9e9;
+  list-style: none;
+  transition: all 0.3s ease;
 }
-#dropdown-menu li a {
-  font-size: 1.3rem !important;
+#btn-group a {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #191818;
+  padding: 15px 0;
+  transition: all 0.3s ease;
 }
-#dropdown-menu li a:active {
+#btn-group a:hover, #btn-group a:active, #btn-group summary:hover, #btn-group summary:active {
   color: #ee582a;
-}
-#dropdown-menu li:last-of-type {
-  padding-bottom: 20px;
-}
-
-.visible {
-  max-height: 50vh;
-}
-
-.hidden {
-  max-height: 0;
 }
 
 #v_navbar {
   position: relative;
-  grid-area: "v_nav";
-  right: 10px;
-  top: 20px;
+}
+#v_navbar div #progress1 {
+  grid-column: 1;
+  grid-row: 2;
+}
+#v_navbar div #progress2 {
+  grid-column: 1;
+  grid-row: 3;
+}
+#v_navbar div #progress3 {
+  grid-column: 1;
+  grid-row: 4;
+}
+#v_navbar div nav {
+  grid-column: 2;
+  grid-row: 1/5;
 }
 #v_navbar div {
   position: sticky;
+  margin-top: 30px;
   top: 10px;
   display: grid;
-  gap: 17px;
-  grid-template-columns: 1.5rem max-content;
-  grid-template-areas: ". arr" "prog1 about" "prog2 gallery" "prog3 map" ". news";
+  grid-template-columns: 10% 90%;
+  grid-template-rows: repeat(4, 1fr);
 }
-#v_navbar div #progress1 {
-  grid-area: prog1;
-}
-#v_navbar div #progress2 {
-  grid-area: prog2;
-}
-#v_navbar div #progress3 {
-  grid-area: prog3;
-}
-#v_navbar div :nth-child(4) {
-  grid-area: arr;
-}
-#v_navbar div :nth-child(5) {
-  grid-area: about;
-}
-#v_navbar div :nth-child(6) {
-  grid-area: gallery;
-}
-#v_navbar div :nth-child(7) {
-  grid-area: map;
-}
-#v_navbar div :nth-child(8) {
-  grid-area: news;
-}
-#v_navbar div a {
-  position: relative;
-  z-index: 1;
-  padding: 15px 10px;
-}
-#v_navbar div :nth-child(4) {
-  padding-bottom: 0 !important;
-  margin: auto !important;
-  display: block;
-}
-#v_navbar div a:not(:first-of-type):before {
-  position: absolute;
-  z-index: -1;
-  content: "";
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 0;
-  height: 100%;
-  background-color: #2c2c2c;
-  transition: 0.3s ease;
-}
-#v_navbar div a:not(:first-of-type):hover::before {
-  width: 100%;
+#v_navbar div nav {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 }
 
 .navbar a {
   text-decoration: none;
   font-variant: small-caps;
   color: #e9e9e9;
-  font-size: 20px;
+  font-size: 1.3rem;
   align-self: center;
   justify-self: left;
 }
@@ -588,21 +533,16 @@ body .App {
   color: #ee582a !important;
 }
 
-p, .navbar, h2, textarea {
-  font-family: "Quicksand", sans-serif;
-}
-
 .progress {
   background: none;
   background-color: transparent;
-  translate: 40px -5px;
+  translate: 10px -5px;
   right: 0;
   top: 0;
   transform-origin: bottom left;
   transform: rotate(90deg);
-  align-self: center;
-  justify-self: center;
-  width: 80px;
+  align-self: flex-start;
+  width: 72px;
   height: 8px;
   padding: 0;
   margin-top: 0px;
@@ -681,68 +621,76 @@ p, .navbar, h2, textarea {
   align-items: center;
 }
 #overlay-page-bg #overlay-page {
+  overflow-y: auto;
   position: fixed;
-  overflow-y: scroll;
   bottom: 50px;
   top: 50px;
   width: 70vw;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 3fr 5fr;
   background-color: #e9e9e9;
-  overflow-x: hidden;
-  overflow-y: scroll;
   text-align: justify;
+}
+#overlay-page-bg #overlay-page .container {
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+#overlay-page-bg #overlay-page article {
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(196, 196, 196);
+  border-radius: 3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+#overlay-page-bg #overlay-page article :first-child {
+  font-size: 1.8rem;
+  text-align: left;
 }
 #overlay-page-bg #overlay-page #x {
   position: fixed;
-  width: 30px;
-  height: 30px;
-  right: 14vw;
-  top: 40px;
-  translate: -50% 50%;
+  font-size: 25px;
+  right: 20px;
+  top: 20px;
+  transform-origin: center;
   cursor: pointer;
   transition: color 0.2s ease, transform 0.2s ease;
-  padding: 5px;
+  padding: 10px;
+  color: #e9e9e9;
 }
 #overlay-page-bg #overlay-page #x:hover {
-  transform: scale(1.2);
+  transform: scale(1.3) rotate(180deg);
 }
 #overlay-page-bg #overlay-page img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  grid-row: span 2;
-}
-#overlay-page-bg #overlay-page article :first-child {
-  font-size: 1.8rem;
-}
-#overlay-page-bg #overlay-page::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-#overlay-page-bg #overlay-page::-webkit-scrollbar {
-  width: 8px;
-}
-#overlay-page-bg #overlay-page::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #555;
 }
 #overlay-page-bg #overlay-page form {
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 40px 20px 40px;
+  padding: 0;
+  justify-self: center;
 }
 #overlay-page-bg #overlay-page form p {
   padding: 0;
-  margin: 16px 0;
+  margin: 10px 0 20px 0;
 }
 #overlay-page-bg #overlay-page form p strong {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 #overlay-page-bg #overlay-page form textarea {
   width: 100%;
@@ -758,10 +706,6 @@ p, .navbar, h2, textarea {
   padding: 10px 13px;
   margin-top: 10px;
   display: block;
-  width: -moz-max-content;
-  width: max-content;
-  height: -moz-max-content;
-  height: max-content;
   background-color: #191818;
   color: #e9e9e9;
   font-size: 1rem;
@@ -772,17 +716,16 @@ p, .navbar, h2, textarea {
   font-variant: small-caps;
 }
 #overlay-page-bg #overlay-page form input:hover {
-  background-color: #2c2c2c;
+  background-color: rgb(0, 0, 0);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 #overlay-page-bg .overlay-grid-item {
-  padding: 0 40px;
+  padding: 0 20px;
   justify-self: center;
   align-self: center;
 }
 
 footer {
-  height: -moz-max-content;
-  height: max-content;
   min-height: 10vh;
   display: flex;
   flex-direction: row;
@@ -793,9 +736,11 @@ footer {
   padding: 10px 0;
 }
 footer p {
+  display: inline;
   margin: 0 9px;
+  color: #f7f7f7;
 }
-footer #follow a {
+footer a {
   vertical-align: middle;
   text-decoration: none;
   color: #e9e9e9;
@@ -805,7 +750,7 @@ footer #follow a {
 }
 
 #follow a:hover, .angle:hover, #x:hover {
-  color: #ee582a;
+  color: #ee582a !important;
 }
 
 @keyframes moveDown {
@@ -816,7 +761,7 @@ footer #follow a {
     bottom: 20px;
   }
 }
-@media screen and (max-width: 1100px) {
+@media only screen and (max-width: 1100px) {
   #my_story {
     width: 95% !important;
     display: flex !important;
@@ -835,7 +780,19 @@ footer #follow a {
     font-size: 1.3rem !important;
   }
 }
+@media only screen and (max-width: 1100px) {
+  form {
+    flex-direction: column !important;
+    align-items: flex-end;
+  }
+  form > input:last-of-type {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 750px) {
+  .App {
+    grid-template-columns: 100% !important;
+  }
   h1 {
     width: 100%;
     text-align: center !important;
@@ -846,15 +803,13 @@ footer #follow a {
     position: fixed !important;
   }
   #h_navbar a {
-    font-size: 1rem !important;
+    font-size: 1.3rem !important;
   }
   #v_navbar {
     display: none;
   }
   #newsletter {
     position: relative;
-    height: -moz-max-content;
-    height: max-content;
     width: 100%;
     padding: 0;
     align-items: flex-start;
@@ -862,8 +817,6 @@ footer #follow a {
   #newsletter #nl_form {
     width: 100%;
     min-height: 90vh;
-    height: -moz-max-content;
-    height: max-content;
     left: 0;
     display: flex;
     align-items: center;
@@ -878,26 +831,36 @@ footer #follow a {
   }
   #overlay-page {
     width: 100% !important;
-    height: 100% !important;
+    overflow-y: auto;
     top: 0 !important;
+    bottom: 0 !important;
     border-radius: 0 !important;
     display: flex !important;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  #overlay-page .container {
+    height: unset !important;
+    overflow-y: unset !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+  }
+  #overlay-page .container article {
+    overflow-y: unset !important;
+  }
+  #overlay-page form {
+    width: 100% !important;
   }
   #overlay-page img {
-    width: 95% !important;
-    height: 95% !important;
+    width: 100% !important;
+    height: 50% !important;
     border-radius: 2px;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
   }
-  #x {
-    top: -15px !important;
-    right: -10px !important;
-    color: #ee582a;
-  }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
   #h_navbar {
     height: 50px !important;
   }
@@ -913,13 +876,7 @@ footer #follow a {
   #gallery {
     padding: 60px;
   }
-  #overlay-page-bg .overlay-grid-item {
-    padding: 0 20px !important;
-  }
-  #overlay-page form {
-    padding: 0 20px 20px 20px !important;
-  }
   #overlay-page article :first-child {
-    font-size: 10vw !important;
+    font-size: 8vw !important;
   }
 }/*# sourceMappingURL=App.css.map */

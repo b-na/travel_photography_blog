@@ -2,7 +2,7 @@ import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import { countries } from "./Gallery";
 
 export default function MyMap() {
-const geoUrl = './countries-110m.json'
+const geoUrl = 'travel_photography_blog/countries-110m.json'
   return (
     <ComposableMap id='map-container'>
       <Geographies id='map' geography={geoUrl}>
