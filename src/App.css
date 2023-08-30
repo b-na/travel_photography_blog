@@ -45,7 +45,7 @@ body {
 }
 body .App {
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 85% 15%;
 }
 body #start {
   grid-column: 1/3;
@@ -507,6 +507,7 @@ body footer {
   grid-row: 1/5;
 }
 #v_navbar div {
+  float: right;
   position: sticky;
   margin-top: 30px;
   top: 10px;

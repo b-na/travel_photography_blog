@@ -55,7 +55,7 @@ body {
 
     .App {
         display: grid;
-        grid-template-columns: 80% 20%;
+        grid-template-columns: 85% 15%;
     }
 
     #start { grid-column: 1/3; }
@@ -547,6 +547,7 @@ body {
     }
 
     div {
+        float: right;
         position: -webkit-sticky;
         position: sticky;
         margin-top: 30px;
