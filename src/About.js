@@ -25,7 +25,7 @@ export default function About() {
         <>
         <h2 className='grid-item'>About Me</h2>
         <div id='profile' className='grid-item'>
-            <img src='Pics/profile_photo.jpeg' alt='profile'/>
+            <img src='profile_photo.webp' alt='profile photo'/>
             <p className="full-name"><strong>{profile.fname} {profile.lname}</strong></p>
             <p><strong>Age: </strong> {profile.age}</p>
             <p><strong>Country: </strong> {profile.country}</p>
